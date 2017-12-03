@@ -282,9 +282,8 @@ namespace Tarea_3_CRUD
                 Form f = new VisorDeFormularios("Nomina.rpt");
                 f.ShowDialog();
             }
-            catch (Exception ex) 
+            catch
             {
-                throw ex;
                 MessageBox.Show("Error al Crear el Archivo Xml", "Aviso");
             }
 

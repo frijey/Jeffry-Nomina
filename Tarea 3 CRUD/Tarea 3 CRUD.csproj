@@ -124,6 +124,13 @@
     <Compile Include="GenerarNomina.Designer.cs">
       <DependentUpon>GenerarNomina.cs</DependentUpon>
     </Compile>
+    <Compile Include="ListaEmpleados.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ListaEmpleados.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,6 +185,11 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GenerarNomina.resx">
       <DependentUpon>GenerarNomina.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListaEmpleados.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ListaEmpleados.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

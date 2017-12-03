@@ -32,10 +32,11 @@ namespace Tarea_3_CRUD
             {
                 datanomina.Rows.Clear();
                 //Cargar la Tabla de todos los empleados activos
-                dt = oper.ConsultaConResultadodt("SELECT id, nombre, apellidos, idcargo, iddepart, fechaing FROM empleado WHERE estado = 'ACTIVO'");
+                //dt = oper.ConsultaConResultadodt("SELECT id, nombre, apellidos, idcargo, iddepart, fechaing FROM empleado WHERE estado = 'ACTIVO'");
+                dt = oper.ConsultaConResultadodt("SELECT empleado.id,empleado.nombre, empleado.apellidos, cargo.descripcion as idcargo, departamento.descripcion as iddepart, empleado.fechaing FROM empleado left join cargo,departamento on empleado.idcargo = cargo.id and empleado.iddepart = departamento.id WHERE empleado.estado = 'ACTIVO';");
                 dataGridView1.DataSource = dt;
                 dataGridView1.Refresh();
-                string DeptrCargo = "";
+                //string DeptrCargo = "";
 
                 for (int i = 0; i < (dataGridView1.RowCount - 1); i++)
                 {
@@ -43,18 +44,20 @@ namespace Tarea_3_CRUD
                     datanomina.Rows.Add();
                     for (int k = 0; k < dataGridView1.Rows[i].Cells.Count; k++)
                     {
-                        if (k != 3 && k != 4)
-                        {
-                            datanomina.Rows[i].Cells[k].Value = dataGridView1.Rows[i].Cells[k].Value;
-                        }
-                        else
-                        {
-                            //Cargar el departamento o el cargo a partir de la llave foránea
-                            DeptrCargo = dataGridView1.Rows[i].Cells[k].Value.ToString();
-                            ds = oper.ConsultaConResultadods("SELECT descripcion FROM departamento WHERE id = '" + DeptrCargo + "';");
-                            DeptrCargo = ds.Tables[0].Rows[0][0].ToString();
-                            datanomina.Rows[i].Cells[k].Value = DeptrCargo;
-                        }
+                        datanomina.Rows[i].Cells[k].Value = dataGridView1.Rows[i].Cells[k].Value;
+
+                        //if (k != 3 && k != 4)
+                        //{
+                        //    datanomina.Rows[i].Cells[k].Value = dataGridView1.Rows[i].Cells[k].Value;
+                        //}
+                        //else
+                        //{
+                        //    //Cargar el departamento o el cargo a partir de la llave foránea
+                        //    DeptrCargo = dataGridView1.Rows[i].Cells[k].Value.ToString();
+                        //    ds = oper.ConsultaConResultadods("SELECT descripcion FROM departamento WHERE id = '" + DeptrCargo + "';");
+                        //    DeptrCargo = ds.Tables[0].Rows[0][0].ToString();
+                        //    datanomina.Rows[i].Cells[k].Value = DeptrCargo;
+                        //}
                     }
 
                 }
@@ -70,7 +73,21 @@ namespace Tarea_3_CRUD
 
         private void btnimprimir_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Esta función estará habilitada para la próxima clase...", "Aviso");
+
+            try
+            {
+                //Convertir el DatagridView en Datatable e imprimir el DataTable en XML
+                ds = oper.ConsultaConResultadods("SELECT empleado.id,empleado.nombre, empleado.apellidos, empleado.cedula, cargo.descripcion as idcargo, departamento.descripcion as iddepart, empleado.sueldo, empleado.fechanac, empleado.fechaing FROM empleado left join cargo,departamento on empleado.idcargo = cargo.id and empleado.iddepart = departamento.id WHERE empleado.estado = 'ACTIVO';");
+                ds.WriteXml("c:\\sistema\\ListaDeEmpleados.xml");
+                Form f = new VisorDeFormularios("ListaEmpleados.rpt");
+                f.ShowDialog();
+                //MessageBox.Show("Se guardo el archivo 'ListaDeEmpleados.xml' Satisfactoriamente", "Aviso");
+            }
+            catch
+            {
+                MessageBox.Show("Error al Crear el Archivo Xml", "Aviso");
+            }
+
         }
 
         private void btnagregar_Click(object sender, EventArgs e)

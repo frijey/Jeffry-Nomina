@@ -52,26 +52,31 @@ namespace Tarea_3_CRUD
 
         private void btnguardar_Click(object sender, EventArgs e)
         {
-            string estado;
-            if (rdbactivo.Checked)
+            if (tbnombre.Text != "")
             {
-                estado = "ACTIVO";
-            }
-            else
-            {
-                estado = "DESACTIVADO";
-            }
+                string estado;
+                if (rdbactivo.Checked)
+                {
+                    estado = "ACTIVO";
+                }
+                else
+                {
+                    estado = "DESACTIVADO";
+                }
 
-            if (nuevo)
-            {
-                oper.ConsultaSinResultado("INSERT INTO cargo (descripcion, estado) VALUES ('" + tbnombre.Text + "','" + estado + "');");
-                nuevo = false;
+                if (nuevo)
+                {
+                    oper.ConsultaSinResultado("INSERT INTO cargo (descripcion, estado) VALUES ('" + tbnombre.Text + "','" + estado + "');");
+                    nuevo = false;
+                }
+                else
+                {
+                    oper.ConsultaSinResultado("UPDATE cargo SET descripcion = '" + tbnombre.Text + "', estado = '" + estado + "' WHERE id = '" + tbid.Text + "';");
+                }
+                this.Close();
             }
-            else
-            {
-                oper.ConsultaSinResultado("UPDATE cargo SET descripcion = '" + tbnombre.Text + "', estado = '" + estado + "' WHERE id = '" + tbid.Text + "';");
-            }
-            MessageBox.Show("Guardado Correctamente", "Guardar");
+            else { }
+            //MessageBox.Show("Guardado Correctamente", "Guardar");
         }
 
         public void Buscar()
