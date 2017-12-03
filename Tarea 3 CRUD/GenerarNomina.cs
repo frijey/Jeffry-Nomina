@@ -101,12 +101,13 @@ namespace Tarea_3_CRUD
             tbttneto.Text = "";
             tbestado.Text = "";
             datanomina.Rows.Clear();
-
+            
             //Desactivar el Procesado de la nómina
             btnprocesar.Enabled = false;
             btngenerar.Enabled = true;
             btnimprimir.Enabled = false;
             btnemitir.Enabled = false;
+            btneliminar.Enabled = false;
 
             //Reactivar el Combo Box de selección del "Mes"...
             cbmes.Enabled = true;
@@ -190,6 +191,7 @@ namespace Tarea_3_CRUD
                 btnprocesar.Enabled = true;
                 btngenerar.Enabled = false;
                 btnemitir.Enabled = true;
+                btneliminar.Enabled = true;
 
             }
             catch
@@ -332,7 +334,15 @@ namespace Tarea_3_CRUD
 
         private void btnemitir_Click(object sender, EventArgs e)
         {
-            Emitir();
+            DialogResult Eliminar = MessageBox.Show("¿Está a punto de emitir la nómina para su entrega, ¿Desea continuar?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+            if (Eliminar == DialogResult.Yes)
+            {
+                Emitir();
+            }
+            else if (Eliminar == DialogResult.No)
+            {
+                //No hacer nada
+            }            
         }
 
         public void Emitir()
@@ -383,6 +393,7 @@ namespace Tarea_3_CRUD
                 cbmes.Enabled = false;
                 btngenerar.Enabled = false;
                 btnimprimir.Enabled = true;
+                btneliminar.Enabled = true;
 
                 if (tbestado.Text == "PROCESADA") { btnemitir.Enabled = true; } else { btnemitir.Enabled = false; }
 

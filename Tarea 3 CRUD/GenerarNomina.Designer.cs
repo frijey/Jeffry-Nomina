@@ -422,6 +422,7 @@
             // btneliminar
             // 
             this.btneliminar.BackColor = System.Drawing.Color.Red;
+            this.btneliminar.Enabled = false;
             this.btneliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btneliminar.Location = new System.Drawing.Point(530, 417);
             this.btneliminar.Name = "btneliminar";
