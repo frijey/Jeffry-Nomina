@@ -74,6 +74,7 @@
             this.tbusuario.Name = "tbusuario";
             this.tbusuario.Size = new System.Drawing.Size(115, 23);
             this.tbusuario.TabIndex = 0;
+            this.tbusuario.Text = "jeffry";
             this.tbusuario.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbusuario_KeyUp);
             // 
             // tbpassword
@@ -85,6 +86,7 @@
             this.tbpassword.PasswordChar = '*';
             this.tbpassword.Size = new System.Drawing.Size(115, 23);
             this.tbpassword.TabIndex = 1;
+            this.tbpassword.Text = "1234";
             this.tbpassword.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbpassword_KeyUp);
             // 
             // tbentrar

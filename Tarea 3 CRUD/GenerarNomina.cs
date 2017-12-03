@@ -248,24 +248,21 @@ namespace Tarea_3_CRUD
                 dsxml.WriteXml("c:\\sistema\\nomina.xml");
 
                 //Guardar los totales en el DGV Plus (Extra para totales)
-                DataTable DtTotales = new DataTable();
-                Object[] CellValue = new object[5];
-                CellValue[0] = tbttirs.Text;
-                CellValue[1] = tbttss.Text;
-                CellValue[2] = tbttahorros.Text;
-                CellValue[3] = tbttdesc.Text;
-                CellValue[4] = tbttneto.Text;
-                DtTotales.Columns.Add();
-                DtTotales.Rows.Add(CellValue);
+                dgvPlus.Rows[1].Cells[0].Value = tbttirs.Text;
+                dgvPlus.Rows[1].Cells[1].Value = tbttss.Text;
+                dgvPlus.Rows[1].Cells[2].Value = tbttahorros.Text;
+                dgvPlus.Rows[1].Cells[3].Value = tbttdesc.Text;
+                dgvPlus.Rows[1].Cells[4].Value = tbttneto.Text;
 
+                DtReport = GetDataTableFromDGV(dgvPlus);
+                dsxml.Tables.Add(DtReport);
                 dsxml.WriteXml("c:\\sistema\\TotalesNomina.xml");
 
                 Form f = new VisorDeFormularios("Nomina.rpt");
                 f.ShowDialog();
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
                 MessageBox.Show("Error al Crear el Archivo Xml","Aviso");
             }
 
