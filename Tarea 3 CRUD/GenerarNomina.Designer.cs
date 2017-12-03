@@ -64,9 +64,11 @@
             this.tbestado = new System.Windows.Forms.TextBox();
             this.btnemitir = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
+            this.dgvPlus = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.datanomina)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPlus)).BeginInit();
             this.SuspendLayout();
             // 
             // datanomina
@@ -418,11 +420,20 @@
             this.label9.TabIndex = 5;
             this.label9.Text = "Estado de la Nómina";
             // 
+            // dgvPlus
+            // 
+            this.dgvPlus.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPlus.Location = new System.Drawing.Point(554, 267);
+            this.dgvPlus.Name = "dgvPlus";
+            this.dgvPlus.Size = new System.Drawing.Size(353, 118);
+            this.dgvPlus.TabIndex = 28;
+            // 
             // GenerarNomina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(928, 471);
+            this.Controls.Add(this.dgvPlus);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnnuevanomina);
@@ -457,6 +468,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.datanomina)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPlus)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -500,5 +512,6 @@
         private System.Windows.Forms.TextBox tbestado;
         private System.Windows.Forms.Button btnemitir;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DataGridView dgvPlus;
     }
 }

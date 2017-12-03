@@ -238,15 +238,37 @@ namespace Tarea_3_CRUD
 
         private void btnimprimir_Click(object sender, EventArgs e)
         {
-            //Convertir el DatagridView en Datatable e imprimir el DataTable en XML
-            DataTable DtReport = new DataTable();
-            DtReport = GetDataTableFromDGV(datanomina);
-            DataSet dsxml = new DataSet();
-            dsxml.Tables.Add(DtReport);
-            dsxml.WriteXml("c:\\sistema\\nomina.xml"); ;
+            try
+            {
+                //Convertir el DatagridView en Datatable e imprimir el DataTable en XML
+                DataTable DtReport = new DataTable();
+                DtReport = GetDataTableFromDGV(datanomina);
+                DataSet dsxml = new DataSet();
+                dsxml.Tables.Add(DtReport);
+                dsxml.WriteXml("c:\\sistema\\nomina.xml");
 
-            Form f = new VisorDeFormularios("Nomina.rpt");
-            f.ShowDialog();
+                //Guardar los totales en el DGV Plus (Extra para totales)
+                DataTable DtTotales = new DataTable();
+                Object[] CellValue = new object[5];
+                CellValue[0] = tbttirs.Text;
+                CellValue[1] = tbttss.Text;
+                CellValue[2] = tbttahorros.Text;
+                CellValue[3] = tbttdesc.Text;
+                CellValue[4] = tbttneto.Text;
+                DtTotales.Columns.Add();
+                DtTotales.Rows.Add(CellValue);
+
+                dsxml.WriteXml("c:\\sistema\\TotalesNomina.xml");
+
+                Form f = new VisorDeFormularios("Nomina.rpt");
+                f.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+                MessageBox.Show("Error al Crear el Archivo Xml","Aviso");
+            }
+
         }
 
         private void btnprocesar_Click(object sender, EventArgs e)
