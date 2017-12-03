@@ -245,8 +245,7 @@ namespace Tarea_3_CRUD
                 DtReport = GetDataTableFromDGV(datanomina);
                 DataSet dsxml = new DataSet();
                 dsxml.Tables.Add(DtReport);
-                dsxml.WriteXml("c:\\sistema\\nomina.xml");
-
+                
                 //Guardar los totales en el DGV Plus (Extra para totales)
                 //string[] Columns = { "T.T. I.S.R.", "T.T. S.S.", "T.T. Ahorros",
                 //"T.T. Deducs", "T.T. Sueldo Neto"};
@@ -254,12 +253,14 @@ namespace Tarea_3_CRUD
                 string[] row0 = { "RD$ "+tbttirs.Text, "RD$ "+tbttss.Text, "RD$ "+tbttahorros.Text,
                 "RD$ "+tbttdesc.Text, "RD$ "+tbttneto.Text};
 
-                dgvPlus.Rows.Add(row0);
+                dgvPlus.Rows.Clear();
+                dgvPlus.Rows.Add(row0);      
 
                 DataTable DtReportTotals = GetDataTableFromDGV(dgvPlus);
                 DataSet dxmltotales = new DataSet();
-                dxmltotales.Tables.Add(DtReportTotals);
-                dxmltotales.WriteXml("c:\\sistema\\TotalesNomina.xml");
+                dsxml.Tables.Add(DtReportTotals);
+
+                dsxml.WriteXml("c:\\sistema\\nomina.xml");
 
                 Form f = new VisorDeFormularios("Nomina.rpt");
                 f.ShowDialog();
