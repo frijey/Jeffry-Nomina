@@ -248,11 +248,13 @@ namespace Tarea_3_CRUD
                 dsxml.WriteXml("c:\\sistema\\nomina.xml");
 
                 //Guardar los totales en el DGV Plus (Extra para totales)
-                dgvPlus.Rows[1].Cells[0].Value = tbttirs.Text;
-                dgvPlus.Rows[1].Cells[1].Value = tbttss.Text;
-                dgvPlus.Rows[1].Cells[2].Value = tbttahorros.Text;
-                dgvPlus.Rows[1].Cells[3].Value = tbttdesc.Text;
-                dgvPlus.Rows[1].Cells[4].Value = tbttneto.Text;
+                //string[] Columns = { "T.T. I.S.R.", "T.T. S.S.", "T.T. Ahorros",
+                //"T.T. Deducs", "T.T. Sueldo Neto"};
+
+                string[] row0 = { "RD$ "+tbttirs.Text, "RD$ "+tbttss.Text, "RD$ "+tbttahorros.Text,
+                "RD$ "+tbttdesc.Text, "RD$ "+tbttneto.Text};
+
+                dgvPlus.Rows.Add(row0);
 
                 DtReport = GetDataTableFromDGV(dgvPlus);
                 dsxml.Tables.Add(DtReport);
@@ -261,9 +263,10 @@ namespace Tarea_3_CRUD
                 Form f = new VisorDeFormularios("Nomina.rpt");
                 f.ShowDialog();
             }
-            catch
+            catch (Exception ex) 
             {
-                MessageBox.Show("Error al Crear el Archivo Xml","Aviso");
+                throw ex;
+                MessageBox.Show("Error al Crear el Archivo Xml", "Aviso");
             }
 
         }

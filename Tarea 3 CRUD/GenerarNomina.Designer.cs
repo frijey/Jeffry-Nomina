@@ -65,6 +65,11 @@
             this.btnemitir = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.dgvPlus = new System.Windows.Forms.DataGridView();
+            this.ttisr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ttss = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ttAhorros = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ttdeducs = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ttneto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.datanomina)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -423,10 +428,41 @@
             // dgvPlus
             // 
             this.dgvPlus.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPlus.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ttisr,
+            this.ttss,
+            this.ttAhorros,
+            this.ttdeducs,
+            this.ttneto});
             this.dgvPlus.Location = new System.Drawing.Point(554, 267);
             this.dgvPlus.Name = "dgvPlus";
             this.dgvPlus.Size = new System.Drawing.Size(353, 118);
             this.dgvPlus.TabIndex = 28;
+            // 
+            // ttisr
+            // 
+            this.ttisr.HeaderText = "T.T. I.S.R.";
+            this.ttisr.Name = "ttisr";
+            // 
+            // ttss
+            // 
+            this.ttss.HeaderText = "T.T. S.S.";
+            this.ttss.Name = "ttss";
+            // 
+            // ttAhorros
+            // 
+            this.ttAhorros.HeaderText = "T.T. Ahorros";
+            this.ttAhorros.Name = "ttAhorros";
+            // 
+            // ttdeducs
+            // 
+            this.ttdeducs.HeaderText = "T.T. Deducciones";
+            this.ttdeducs.Name = "ttdeducs";
+            // 
+            // ttneto
+            // 
+            this.ttneto.HeaderText = "T.T. Sueldo Neto";
+            this.ttneto.Name = "ttneto";
             // 
             // GenerarNomina
             // 
@@ -513,5 +549,10 @@
         private System.Windows.Forms.Button btnemitir;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DataGridView dgvPlus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ttisr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ttss;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ttAhorros;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ttdeducs;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ttneto;
     }
 }
