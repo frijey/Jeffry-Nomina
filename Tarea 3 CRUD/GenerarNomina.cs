@@ -43,6 +43,7 @@ namespace Tarea_3_CRUD
                 ideempleado = ds.Tables[0].Rows[0][0].ToString();
                 HEXTODEC.idbuscar = ideempleado;
                 f.ShowDialog();
+                Nuevo();
                 GenerarNom();
             }
             catch
@@ -130,11 +131,20 @@ namespace Tarea_3_CRUD
         public void GenerarNom()
         {
 
-            //Traer datos de los empleados activos para la creación de la nómina
+            //Traer datos de los empleados activos para la creación de la nómina (Data Grid y TextBox)
             datanomina.Rows.Clear();
             string cargo;
             string idcargo;
-            DataSet DDS = new DataSet();
+
+            //Reiniciar valor de las variables de totales
+            totalisr = 0;
+            totalss = 0;
+            totalahorros = 0;
+            totaldesc = 0;
+            totalneto = 0;
+            totalbruto = 0;
+            
+            DataSet DDS = new DataSet(); //Usado para hacer el cambio de id a nombre de departamento
 
             try
             {
@@ -192,6 +202,9 @@ namespace Tarea_3_CRUD
                 btngenerar.Enabled = false;
                 btnemitir.Enabled = true;
                 btneliminar.Enabled = true;
+
+                //Desactivar el Combo Box de selección del "Mes"...
+                cbmes.Enabled = false;
 
             }
             catch
