@@ -245,19 +245,21 @@ namespace Tarea_3_CRUD
                 DtReport = GetDataTableFromDGV(datanomina);
                 DataSet dsxml = new DataSet();
                 dsxml.Tables.Add(DtReport);
-                
+
                 //Guardar los totales en el DGV Plus (Extra para totales)
                 //string[] Columns = { "T.T. I.S.R.", "T.T. S.S.", "T.T. Ahorros",
                 //"T.T. Deducs", "T.T. Sueldo Neto"};
 
-                string[] row0 = { "RD$ "+tbttirs.Text, "RD$ "+tbttss.Text, "RD$ "+tbttahorros.Text,
-                "RD$ "+tbttdesc.Text, "RD$ "+tbttneto.Text};
+                //string[] row0 = { "RD$ "+tbttirs.Text, "RD$ "+tbttss.Text, "RD$ "+tbttahorros.Text,
+                //"RD$ "+tbttdesc.Text, "RD$ "+tbttneto.Text};
 
-                dgvPlus.Rows.Clear();
-                dgvPlus.Rows.Add(row0);      
+                //dgvPlus.Rows.Clear();
+                //dgvPlus.Rows.Add(row0);      
 
-                DataTable DtReportTotals = GetDataTableFromDGV(dgvPlus);
-                DataSet dxmltotales = new DataSet();
+                //DataTable DtReportTotals = GetDataTableFromDGV(dgvPlus);
+                //DataSet dxmltotales = new DataSet();
+                DataTable DtReportTotals = oper.ConsultaConResultadodt("SELECT mes, totalbruto, totalisr, totalss, totalahorros, totaldescuentos, totalneto FROM cabecera_nomina WHERE id = '"+ tbnumnomina.Text +"';");
+
                 dsxml.Tables.Add(DtReportTotals);
 
                 dsxml.WriteXml("c:\\sistema\\nomina.xml");
