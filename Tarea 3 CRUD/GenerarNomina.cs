@@ -256,9 +256,10 @@ namespace Tarea_3_CRUD
 
                 dgvPlus.Rows.Add(row0);
 
-                DtReport = GetDataTableFromDGV(dgvPlus);
-                dsxml.Tables.Add(DtReport);
-                dsxml.WriteXml("c:\\sistema\\TotalesNomina.xml");
+                DataTable DtReportTotals = GetDataTableFromDGV(dgvPlus);
+                DataSet dxmltotales = new DataSet();
+                dxmltotales.Tables.Add(DtReportTotals);
+                dxmltotales.WriteXml("c:\\sistema\\TotalesNomina.xml");
 
                 Form f = new VisorDeFormularios("Nomina.rpt");
                 f.ShowDialog();
