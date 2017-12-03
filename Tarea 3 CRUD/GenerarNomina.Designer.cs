@@ -64,16 +64,10 @@
             this.tbestado = new System.Windows.Forms.TextBox();
             this.btnemitir = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            this.dgvPlus = new System.Windows.Forms.DataGridView();
-            this.ttisr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ttss = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ttAhorros = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ttdeducs = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ttneto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btneliminar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.datanomina)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPlus)).BeginInit();
             this.SuspendLayout();
             // 
             // datanomina
@@ -341,9 +335,9 @@
             // btnimprimir
             // 
             this.btnimprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnimprimir.Location = new System.Drawing.Point(235, 415);
+            this.btnimprimir.Location = new System.Drawing.Point(200, 415);
             this.btnimprimir.Name = "btnimprimir";
-            this.btnimprimir.Size = new System.Drawing.Size(182, 44);
+            this.btnimprimir.Size = new System.Drawing.Size(138, 44);
             this.btnimprimir.TabIndex = 24;
             this.btnimprimir.Text = "Imprimir";
             this.btnimprimir.UseVisualStyleBackColor = true;
@@ -352,9 +346,9 @@
             // btnnuevanomina
             // 
             this.btnnuevanomina.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnnuevanomina.Location = new System.Drawing.Point(437, 415);
+            this.btnnuevanomina.Location = new System.Drawing.Point(352, 417);
             this.btnnuevanomina.Name = "btnnuevanomina";
-            this.btnnuevanomina.Size = new System.Drawing.Size(182, 44);
+            this.btnnuevanomina.Size = new System.Drawing.Size(172, 44);
             this.btnnuevanomina.TabIndex = 25;
             this.btnnuevanomina.Text = "Nueva Nómina";
             this.btnnuevanomina.UseVisualStyleBackColor = true;
@@ -374,7 +368,7 @@
             this.btnprocesar.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btnprocesar.Enabled = false;
             this.btnprocesar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnprocesar.Location = new System.Drawing.Point(47, 415);
+            this.btnprocesar.Location = new System.Drawing.Point(25, 415);
             this.btnprocesar.Name = "btnprocesar";
             this.btnprocesar.Size = new System.Drawing.Size(157, 46);
             this.btnprocesar.TabIndex = 24;
@@ -425,51 +419,24 @@
             this.label9.TabIndex = 5;
             this.label9.Text = "Estado de la Nómina";
             // 
-            // dgvPlus
+            // btneliminar
             // 
-            this.dgvPlus.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPlus.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ttisr,
-            this.ttss,
-            this.ttAhorros,
-            this.ttdeducs,
-            this.ttneto});
-            this.dgvPlus.Location = new System.Drawing.Point(554, 267);
-            this.dgvPlus.Name = "dgvPlus";
-            this.dgvPlus.Size = new System.Drawing.Size(353, 118);
-            this.dgvPlus.TabIndex = 28;
-            // 
-            // ttisr
-            // 
-            this.ttisr.HeaderText = "T.T. I.S.R.";
-            this.ttisr.Name = "ttisr";
-            // 
-            // ttss
-            // 
-            this.ttss.HeaderText = "T.T. S.S.";
-            this.ttss.Name = "ttss";
-            // 
-            // ttAhorros
-            // 
-            this.ttAhorros.HeaderText = "T.T. Ahorros";
-            this.ttAhorros.Name = "ttAhorros";
-            // 
-            // ttdeducs
-            // 
-            this.ttdeducs.HeaderText = "T.T. Deducciones";
-            this.ttdeducs.Name = "ttdeducs";
-            // 
-            // ttneto
-            // 
-            this.ttneto.HeaderText = "T.T. Sueldo Neto";
-            this.ttneto.Name = "ttneto";
+            this.btneliminar.BackColor = System.Drawing.Color.Red;
+            this.btneliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btneliminar.Location = new System.Drawing.Point(530, 417);
+            this.btneliminar.Name = "btneliminar";
+            this.btneliminar.Size = new System.Drawing.Size(102, 42);
+            this.btneliminar.TabIndex = 28;
+            this.btneliminar.Text = "Eliminar";
+            this.btneliminar.UseVisualStyleBackColor = false;
+            this.btneliminar.Click += new System.EventHandler(this.btneliminar_Click);
             // 
             // GenerarNomina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(928, 471);
-            this.Controls.Add(this.dgvPlus);
+            this.Controls.Add(this.btneliminar);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnnuevanomina);
@@ -504,7 +471,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.datanomina)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPlus)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -548,11 +514,6 @@
         private System.Windows.Forms.TextBox tbestado;
         private System.Windows.Forms.Button btnemitir;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.DataGridView dgvPlus;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ttisr;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ttss;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ttAhorros;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ttdeducs;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ttneto;
+        private System.Windows.Forms.Button btneliminar;
     }
 }

@@ -368,7 +368,7 @@ namespace Tarea_3_CRUD
             {
                 Nuevo();
                 //Cargar la Cabecera de la Nómina
-                ds = oper.ConsultaConResultadods("SELECT * FROM cabecera_nomina WHERE id = '" + numnomina + "';");
+                ds = oper.ConsultaConResultadods("SELECT * FROM cabecera_nomina WHERE id = '" + numnomina + "' AND estado != 'DESACTIVADO';");
                 tbnumnomina.Text = ds.Tables[0].Rows[0][0].ToString();
                 cbmes.Text = ds.Tables[0].Rows[0][1].ToString();
                 tbttirs.Text = ds.Tables[0].Rows[0][2].ToString();
@@ -409,6 +409,25 @@ namespace Tarea_3_CRUD
             }
 
 
+        }
+
+        private void btneliminar_Click(object sender, EventArgs e)
+        {
+            DialogResult Eliminar = MessageBox.Show("¿Seguro que desea eliminar la nómina: #" + tbnumnomina.Text + "?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+            if(Eliminar == DialogResult.Yes)
+            {
+                EliminarNomina();
+            }
+            else if (Eliminar == DialogResult.No)
+            {
+                //No hacer nada
+            }
+        }
+
+        public void EliminarNomina()
+        {
+            oper.ConsultaSinResultado("UPDATE cabecera_nomina SET estado = 'DESACTIVADO' WHERE id = '"+ tbnumnomina.Text +"'");
+            Nuevo();
         }
     }
 }
